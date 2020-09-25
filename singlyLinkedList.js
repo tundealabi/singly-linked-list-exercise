@@ -47,7 +47,8 @@ class SinglyLinkedList {
     shift()  {
         if(SinglyLinkedList.store.length){
             let shiftNode = SinglyLinkedList.store[0];
-            SinglyLinkedList.store = SinglyLinkedList.store.slice(1);
+            SinglyLinkedList.store.splice(0,1);
+            SinglyLinkedList.loop(this);
             this.length = SinglyLinkedList.store.length;
             SinglyLinkedList.count--;
             return shiftNode.val;
