@@ -30,6 +30,7 @@ class SinglyLinkedList {
             let popNode = SinglyLinkedList.store[SinglyLinkedList.count];
             SinglyLinkedList.store = SinglyLinkedList.store.slice(0,SinglyLinkedList.count);
             this.length = SinglyLinkedList.store.length;
+            SinglyLinkedList.count--;
             return popNode.val;
         }
         return undefined;
@@ -39,6 +40,7 @@ class SinglyLinkedList {
         let node = new Node(value);
         SinglyLinkedList.store.unshift(node);
         SinglyLinkedList.loop(this);
+        SinglyLinkedList.count++;
         return this;
     }
 
@@ -47,6 +49,7 @@ class SinglyLinkedList {
             let shiftNode = SinglyLinkedList.store[0];
             SinglyLinkedList.store = SinglyLinkedList.store.slice(1);
             this.length = SinglyLinkedList.store.length;
+            SinglyLinkedList.count--;
             return shiftNode.val;
         }
         return undefined;
@@ -76,6 +79,7 @@ class SinglyLinkedList {
         let newNode = new Node(node);
         SinglyLinkedList.store.splice(index,0,newNode);
         SinglyLinkedList.loop(this);
+        SinglyLinkedList.count++;
         return this.length;
     }
 
@@ -91,6 +95,7 @@ class SinglyLinkedList {
         }
         SinglyLinkedList.store = [...temp];
         SinglyLinkedList.loop(this);
+        SinglyLinkedList.count--;
         return removed.val;
     }
 
